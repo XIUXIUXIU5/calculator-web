@@ -20,7 +20,12 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $expr = $_GET['expr'];
-    var_dump($expr);
+
+    //TO DO: check if the expression is valid
+
+    $result = eval('return '.$expr.';');
+    echo "<h2>Result</h2>";
+    echo $expr.' = '.$result;
 }
 ?>
 
