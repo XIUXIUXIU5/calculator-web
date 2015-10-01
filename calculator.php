@@ -6,7 +6,7 @@
 <p>Created by Lei Shao and Jing Wu.</p>
 <p>Type an expression in the following box (e.g., 10.5+20*3/25).</p>
 
-<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+<form method="get" action="<?php echo $_SERVER['PHP_SELF'];?>">
   <input type="text" name="expr">
   <input type="submit" name="Calculate">
 </form>
@@ -18,8 +18,9 @@
 	<li>The calculator handles invalid input "gracefully". It does not output PHP error messages.</li>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $expr = $_POST['expr'];
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $expr = $_GET['expr'];
+    var_dump($expr);
 }
 ?>
 
