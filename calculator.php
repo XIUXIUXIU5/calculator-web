@@ -25,7 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     $result = eval('return '.$expr.';');
     echo "<h2>Result</h2>";
-    echo $expr.' = '.$result;
+    if ($result) {
+    	echo $expr.' = '.$result;
+    }
 }
 ?>
 
