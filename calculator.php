@@ -22,7 +22,7 @@
     $expr = $_GET['expr'];
     echo "<br>";
 
-    if (preg_match("/^-?\d+(\.\d+)?([-*\+\/]-?\d+(\.\d+)?)*$/", $expr))
+    if (preg_match("/^\s*-?\d+(\.\d+)?(\s*[-*\+\/]\s*-?\d+(\.\d+)?)*$/", $expr))
     {
       if (preg_match("/\/0/", $expr))
         echo "Division by zero error!";
@@ -31,7 +31,7 @@
       //TO DO: old terms do not vanish
       //TO DO: 1-1 bug
       //TO DO: 1+-1 bug
-      //TO DO: what about 0/0
+      //TO DO: 0*1 bug
         echo "Valid expression!";
         echo "<br>";
         $result = eval('return '.$expr.';');
