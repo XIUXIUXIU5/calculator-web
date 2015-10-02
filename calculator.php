@@ -21,30 +21,30 @@
    if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $expr = $_GET['expr'];
     echo "<br>";
-
-    if (preg_match("/^\s*-?\d+(\.\d+)?(\s*[-*\+\/]\s*-?\d+(\.\d+)?)*$/", $expr))
-    {
-      if (preg_match("/\/0/", $expr))
-        echo "Division by zero error!";
-      else
+    if (($expr)) {
+      if (preg_match("/^\s*-?\d*(\.\d+)?(\s*[-*\+\/]\s*-?\d+(\.\d+)?)*$/", $expr))
       {
+        if (preg_match("/\/0/", $expr))
+          echo "Division by zero error!";
+        else
+        {
       //TO DO: old terms do not vanish
       //TO DO: 1-1 bug
       //TO DO: 1+-1 bug
       //TO DO: 0*1 bug
-        echo "Valid expression!";
-        echo "<br>";
-        $result = eval('return '.$expr.';');
-        echo "<h2>Result</h2>";
-        if ($result) {
-         echo $expr.' = '.$result;
+          echo "Valid expression!";
+          echo "<br>";
+          $result = eval('return '.$expr.';');
+          echo "<h2>Result</h2>";
+          echo $expr.' = '.$result;
         }
       }
+      else
+        echo "Invalid expression!";    
     }
-    else
-      echo "Invalid expression!";
+    
   }
- ?>
+  ?>
 
 </body>
 </html>
