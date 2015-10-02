@@ -19,7 +19,7 @@
 
    <?php
    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $expr = $_GET['expr'];
+    $expr = $_GET['expr'];//check this is not null
     echo "<br>";
 
     if (preg_match("/^\s*-?\d+(\.\d+)?(\s*[-*\+\/]\s*-?\d+(\.\d+)?)*$/", $expr))
