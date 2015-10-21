@@ -14,7 +14,8 @@
   Type an SQL query in the following box:<br>
   Example: SELECT * FROM Actor WHERE id = 10;</p>
   <form method="GET" action="<?php echo $_SERVER['PHP_SELF'];?>">
-    <textarea input type="text" name="query" id = "txtbox"></textarea>
+    <textarea input type="text" name="query" ROWS = 8 COLS = 60 id = "txtbox"></textarea>
+    <br>
     <input type="submit" value="Submit">
   </form>
 
