@@ -36,14 +36,13 @@
       echo '<tr align = center>';
       $c = 0;
       $num = mysql_num_fields($rs);
-      /*while($c < $num)
+      while($meta = mysql_fetch_field($rs))
       {
         echo '<td>';
-        $meta = mysql_fecth_field($rs,0);
-        echo $mata->name;
+        printf ($meta->name);
         echo '</td>';
       }
-      echo '</tr>';*/
+      echo '</tr>';
       while($row = mysql_fetch_row($rs))
       {
       	//$num = count($row);
