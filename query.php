@@ -6,7 +6,7 @@
 	#txtbox
 	{
 		height:150px;
-		width:300px;
+		width:450px;
 	}
 	</style>
   <p>Created by Lei Shao and Jing Wu.<br>
@@ -14,7 +14,7 @@
   Type an SQL query in the following box:<br>
   Example: SELECT * FROM Actor WHERE id = 10;</p>
   <form method="GET" action="<?php echo $_SERVER['PHP_SELF'];?>">
-    <input type="text" name="query" size = 500 id = "txtbox">
+    <textarea input type="text" name="query" id = "txtbox"></textarea>
     <input type="submit" value="Submit">
   </form>
 
@@ -31,28 +31,38 @@
     if ($query) 
     {
       $rs = mysql_query($query,$db_connection);
+      echo '<table border = 1 cellspacing = 1 cellpadding = 2>';
+      echo '<tbody>';
+      echo '<tr align = center>';
+      $c = 0;
+      $num = mysql_num_fields($rs);
+      /*while($c < $num)
+      {
+        echo '<td>';
+        $meta = mysql_fecth_field($rs,0);
+        echo $mata->name;
+        echo '</td>';
+      }
+      echo '</tr>';*/
       while($row = mysql_fetch_row($rs))
       {
-      	echo "<table>";
-      	$num = count($row);
+      	//$num = count($row);
         $i = 0;
-        /*while($i < $num)
-        {
-        	echo 
-        }*/
-        echo "<tr>";
+        echo '<tr align = center>';
         while($i < $num)
         {
-      		echo "<td>";
+      		echo '<td>';
         	if ($row[$i] == NULL) echo "N/A";
         	else echo $row[$i];
-        	echo "</td>";
+        	echo '</td>';
         	$i++;
         }
-        echo "</tr>";
-        echo "</table>";
+        echo '</tr>';
       }
+      echo '</tbody>';
+      echo '</table>';
   	}	
+    mysql_free_result($rs);
     mysql_close($db_connection);
   }
  ?>
